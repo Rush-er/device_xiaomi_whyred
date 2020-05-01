@@ -14,4 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/carbon_whyred.mk
+    $(LOCAL_DIR)/validus_whyred.mk
+
+COMMON_LUNCH_CHOICES := \
+    validus_whyred-user \
+    validus_whyred-userdebug \
+    validus_whyred-eng
