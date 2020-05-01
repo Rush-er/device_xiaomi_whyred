@@ -26,7 +26,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, device/xiaomi/whyred/device.mk)
 
 # Inherit Carbon product configuration
-$(call inherit-product, vendor/validus/config/common_full_phone.mk
+$(call inherit-product, vendor/validus/config/common_full_phone.mk)
 # Inherit Carbon GSM telephony parts
 $(call inherit-product, vendor/validus/config/gsm.mk)
 
