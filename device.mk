@@ -31,6 +31,11 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+PRODUCT_ENFORCE_RRO_TARGETS := *
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage/lineage-sdk \
+    $(LOCAL_PATH)/overlay/packages/apps/Snap
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += device/xiaomi/whyred
 
@@ -269,6 +274,7 @@ PRODUCT_COPY_FILES += \
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
+    ipacm.rc \
     IPACM_cfg.xml \
     libipanat \
     liboffloadhal

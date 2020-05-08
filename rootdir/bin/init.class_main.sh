@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
+# Copyright (c) 2013-2014, 2019 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -41,12 +41,6 @@ case "$baseband" in
     stop ril-daemon
     stop vendor.ril-daemon
     stop vendor.qcrild
-    start vendor.ipacm
-esac
-
-case "$baseband" in
-    "sa8")
-    start vendor.ipacm
 esac
 
 case "$baseband" in
@@ -101,7 +95,18 @@ case "$baseband" in
         start vendor.ril-daemon
     fi
 
-    start vendor.ipacm
+    case "$baseband" in
+        "svlte2a" | "csfb")
+          start qmiproxy
+        ;;
+        "sglte" | "sglte2" )
+          if [ "x$sgltecsfb" != "xtrue" ]; then
+              start qmiproxy
+          else
+              setprop persist.vendor.radio.voice.modem.index 0
+          fi
+        ;;
+    esac
 
     multisim=`getprop persist.radio.multisim.config`
 
@@ -124,15 +129,13 @@ case "$baseband" in
     case "$datamode" in
         "tethered")
             start vendor.dataqti
-            start vendor.port-bridge
+            start vendor.dataadpl
             ;;
         "concurrent")
             start vendor.dataqti
-            start vendor.netmgrd
-            start vendor.port-bridge
+            start vendor.dataadpl
             ;;
         *)
-            start vendor.netmgrd
             ;;
     esac
 esac
