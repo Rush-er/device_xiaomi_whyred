@@ -1,6 +1,3 @@
-# Dirac
-persist.audio.dirac.                    u:object_r:dirac_prop:s0
-
 # Audio
 audio.sys.noisy.broadcast.delay         u:object_r:vendor_default_prop:s0
 audio.sys.offload.pstimeout.secs        u:object_r:vendor_default_prop:s0
