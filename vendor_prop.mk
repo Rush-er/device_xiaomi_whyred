@@ -1,11 +1,3 @@
-# ART
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-filter=speed \
-    dalvik.vm.image-dex2oat-filter=speed \
-    ro.sys.fw.dex2oat_thread_count=8 \
-    dalvik.vm.boot-dex2oat-threads=8 \
-    dalvik.vm.dex2oat-threads=8
-
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.job_delay=true \
     persist.sys.mcd_config_file=/system/etc/mcd_default.conf \
@@ -230,16 +222,31 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.calls.on.ims=1 \
     persist.dbg.wfc_avail_ovr=1 \
     ro.telephony.use_old_mnc_mcc_format=true \
-	persist.sys.fflag.override.settings_network_and_internet_v2=true \
-	ro.telephony.iwlan_operation_mode=legacy \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
+    ro.telephony.iwlan_operation_mode=legacy \
     persist.radio.NO_STAPA=1
 	
 # LMKD
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=false \
     ro.lmk.use_psi=false \
+    ro.lmk.low=1001 \
+    ro.lmk.medium=800 \
+    ro.lmk.critical=0 \
+    ro.lmk.critical_upgrade=false \
+    ro.lmk.upgrade_pressure=100 \
+    ro.lmk.downgrade_pressure=100 \
     ro.lmk.kill_heaviest_task=true \
     ro.lmk.kill_timeout_ms=100 \
     ro.lmk.use_minfree_levels=true \
     ro.lmk.log_stats=true
 
+#Listen
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.audio.soundtrigger=nuance \
+    ro.vendor.audio.soundtrigger.lowpower=false \
+    ro.vendor.audio.soundtrigger.phrase.level=40 \
+    ro.vendor.audio.soundtrigger.user.level=60 \
+    ro.vendor.audio.soundtrigger.phrase.adsp.level=40 \
+    ro.vendor.audio.soundtrigger.user.adsp.level=60 \
+    ro.vendor.audio.soundtrigger.training.level=50
