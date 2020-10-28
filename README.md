@@ -39,10 +39,10 @@ Xiaomi Redmi Note 5 was announced in Febraury 2018 and released in March 2018.
 $ . build/envsetup.sh
 
 # lunch whyred
-$ lunch carbon_whyred
+$ lunch gzosp_whyred
 
 # run the make command. No of threads can be set by replacing $(nproc --all).
-$ make carbon -j$(nproc --all)
+$ make gzosp -j$(nproc --all)
 ```
 
 ___

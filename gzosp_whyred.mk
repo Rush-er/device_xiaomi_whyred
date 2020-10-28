@@ -28,13 +28,13 @@ $(call inherit-product, device/xiaomi/whyred/device.mk)
 # Inherit from custom vendor
 $(call inherit-product, vendor/MiuiCamera/config.mk)
 
-# Inherit Carbon product configuration
-$(call inherit-product, vendor/carbon/config/common.mk)
+# Inherit Gzosp product configuration
+$(call inherit-product, vendor/gzosp/config/common_full_phone.mk)
 
-# Inherit Carbon GSM telephony parts
-$(call inherit-product, vendor/carbon/config/gsm.mk)
+# Inherit Gzosp GSM telephony parts
+$(call inherit-product, vendor/gzosp/config/gsm.mk)
 
-PRODUCT_NAME := carbon_whyred
+PRODUCT_NAME := gzosp_whyred
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := whyred
 PRODUCT_MANUFACTURER := Xiaomi
